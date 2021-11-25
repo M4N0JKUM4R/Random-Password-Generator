@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="icon" type="image/media" href="images/password.ico" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="password-box">
+
+            <div class="column-container">
+                <div class="column-1 column">
+                    <div class="generated-password">
+                        <div class="password-gen"></div>
+                        <div class="password-actions">
+                            <div class="copy">
+                                <div class="copied-message">Copied</div>
+                                <i class="fa fa-copy"></i>
+                            </div>
+                            <div class="save">
+                                <div class="saved-message">Saved</div>
+                                <i class="fa fa-save"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="password-strength-meter">
+                        <div class="strength"></div>
+                    </div>
+                    <div class="inputs">
+                        <div class="input password-length-group">
+                            <label for="password-length">Password Length</label>
+                            <input type="range" min="1" max="255" value="16" name="password-length" />
+                            <input class="password-length-value" type="number" min="1" max="255" value="16" />
+                        </div>
+                        <div class="input">
+                            <div class="uppercase-input">Contains Uppercase Letters - <span>[ABCDE..Z]</span></div>
+                            <input type="checkbox" name="uppercase-input" />
+                        </div>
+                        <div class="input">
+                            <div class="lowercase-input">Contains Lowercase Letters - <span>[abcde...z]</span></div>
+                            <input type="checkbox" name="lowercase-input" />
+                        </div>
+                        <div class="input">
+                            <div class="number-input">Contains Numbers - <span>[012...9]</span></div>
+                            <input type="checkbox" name="number-input" />
+                        </div>
+                        <div class="input">
+                            <div class="symbol-input">Contains Symbols - <span>[=>?...}~]</span></div>
+                            <input type="checkbox" name="symbol-input" />
+                        </div>
+
+                    </div>
+                </div>
+                <div class="column-2 column disappear">
+                    <div class="password-history">
+                        <div class="history-header">
+                            <h2 class="title">Password History</h2>
+                            <div class="history-actions">
+                                <div class="info-history"><img src="images/question-shield.png"
+                                        data-tooltip="The passwords are stored in your local database: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage They are never sent to outside world, Check the code: https://github.com/M4N0JKUM4R"
+                                        title="Info" /></div>
+                                <div class="delete-history"><img src="images/delete.png" title="Delete all" /></div>
+                            </div>
+                        </div>
+                        <div class="history-loop">
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="button-actions">
+                <button id="generate-password">Generate Password</button>
+                <div id="history-button">
+                    <img title="Saved Passwords" src="images/History.png" />
+                    <div class="history-number"></div>
+                </div>
+            </div>
+        </div>
+        <div class="notification">
+            <div class="notification-message"></div>
+            <div class="time-left"></div>
+        </div>
+    </div>
+</body>
+
+</html>

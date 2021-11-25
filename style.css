@@ -1,0 +1,451 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root {
+    --color: #3369e7;
+    --lighter-color: rgba(51, 105, 231, 0.9);
+
+    --dark: rgba(0, 0, 0, 0.75);
+
+    --red: #f78f8f;
+    --green: #9ac5b9;
+
+    --dark-red: #c24146;
+    --dark-green: #5e9b8d;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    height: 100%;
+    background: var(--color);
+    overflow-x: hidden;
+}
+
+.container {
+    display: grid;
+    place-items: center;
+    height: 100%;
+}
+
+.password-box {
+    background: white;
+    padding: 2em;
+    width: 30em;
+    border-radius: 5px;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 20%), 0 1px 5px 0 rgb(0 0 0 / 12%);
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 3em;
+        align-items: unset;
+    }
+
+    .password-box {
+        width: 100%;
+        margin-bottom: 2em;
+    }
+
+}
+
+.password-box .generated-password {
+    background: var(--lighter-color);
+    padding: 1em;
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    gap: 2em;
+    height: 60px;
+    transition: all ease-in-out 1s;
+    width: 100%;
+}
+
+.password-box input[type="number"] {
+    width: 75px;
+    padding-left: 10px;
+    transition: all ease-in-out 0.5s;
+}
+
+.password-box input[type="checkbox"] {
+    cursor: url("images/check-16.png"), auto;
+}
+
+.password-box .input {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 0.5em;
+    padding: 0.5em 0;
+    border-bottom: 1px solid lightgrey;
+}
+
+.password-box .input:last-child {
+    border: 0 none;
+}
+
+.password-box .error {
+    border: 1px solid var(--red);
+    transition: all ease-in-out 0.5s;
+}
+
+.inputs {
+    margin: 2em 0;
+}
+
+
+
+#generate-password {
+    width: 100%;
+    background: var(--color);
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    font-weight: bold;
+    border: 0 none;
+    border-radius: 5px;
+    padding: 1em 1em;
+    cursor: url("images/password.png"), auto;
+    text-transform: uppercase;
+}
+
+.button-actions>button {
+    border-bottom: 5px solid black;
+}
+
+#history-button {
+    position: relative;
+}
+
+#history-button img {
+    max-width: 3em;
+    cursor: pointer;
+}
+
+#history-button .history-number {
+    position: absolute;
+    top: -0.25em;
+    right: -0.25em;
+    background: var(--red);
+    color: white;
+    padding: 0 0.5em;
+    border-radius: 5px;
+    width: fit-content;
+    font-size: 0.75rem;
+}
+
+
+#generate-password:hover {
+    background: rgba(51, 105, 231, 0.9);
+}
+
+.input span {
+    font-weight: bold;
+}
+
+.password-gen {
+    word-break: break-all;
+    height: fit-content;
+    width: 100%;
+}
+
+.password-strength-meter {
+    background: lightgrey;
+    width: 100%;
+    height: 10px;
+    border-radius: 2px;
+    margin-top: 1em;
+}
+
+.strength {
+    width: 50%;
+    background: transparent;
+    height: 10px;
+    border-radius: 2px;
+    transition: all ease-in-out 1s;
+}
+
+.strength.low {
+    width: 25%;
+    background: var(--dark-red);
+}
+
+.strength.medium {
+    width: 50%;
+    background: orange;
+}
+
+.strength.high {
+    width: 100%;
+    background: var(--dark-green);
+}
+
+.history-loop .password-strength-meter {
+    height: 5px;
+    margin-top: 0;
+}
+
+.history-loop .strength {
+    height: 5px;
+}
+
+.password-actions {
+    display: flex;
+    gap: 1em;
+}
+
+.copy,
+.save {
+    cursor: pointer;
+    position: relative;
+}
+
+.copied-message {
+    opacity: 0;
+    position: absolute;
+    background: var(--dark);
+    padding: 0.25em 0.5em;
+    transition: all ease-in-out 0.5s;
+    border-radius: 5px;
+    top: -0.35em;
+    width: max-content;
+    left: -5.5em;
+}
+
+.saved-message {
+    opacity: 0;
+    position: absolute;
+    background: var(--dark);
+    padding: 0.25em 0.5em;
+    transition: all ease-in-out 0.5s;
+    border-radius: 5px;
+    top: -2.75em;
+    width: max-content;
+    left: -1.75em;
+}
+
+.copied-message::after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0.5em;
+    left: 4.5em;
+    display: inline;
+    border: 10px solid var(--dark);
+    border-color: transparent transparent transparent var(--dark);
+}
+
+.saved-message::after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 2em;
+    left: 1.5em;
+    display: inline;
+    border: 10px solid var(--dark);
+    border-color: var(--dark) transparent transparent transparent;
+}
+
+.copied-message.success {
+    opacity: 1;
+}
+
+.saved-message.success {
+    opacity: 1;
+}
+
+.input.password-length-group {
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .input.password-length-group {
+        flex-direction: column;
+        gap: 1em 0;
+    }
+}
+
+.password-length-value {
+    background: var(--dark);
+    padding: 0.25em 0.5em;
+    transition: all ease-in-out 0.5s;
+    border-radius: 5px;
+    width: 50px;
+    text-align: center;
+    color: white;
+    height: 40px;
+    font-size: 1rem;
+}
+
+.button-actions {
+    display: flex;
+    margin-top: 1em;
+    gap: 2em;
+}
+
+.password-history .title {
+    text-align: center;
+}
+
+.password-history .password {
+    background: var(--lighter-color);
+    padding: 1em;
+    color: white;
+    margin-top: 1em;
+    word-break: break-all;
+    display: flex;
+    gap: 2em;
+    justify-content: space-between;
+    transition: all ease-in-out 2s;
+}
+
+.history-loop {
+    min-height: 15em;
+    max-height: 25em;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-right: 1em;
+    padding-bottom: 2em;
+}
+
+.history-loop .password-copy {
+    cursor: pointer;
+    position: relative;
+}
+
+.history-loop .password-time {
+    cursor: help;
+}
+
+.history-loop .empty-state {
+    display: grid;
+    place-items: center;
+}
+
+.empty-state img {
+    max-width: 20em;
+}
+
+::-webkit-scrollbar {
+    width: 0.5em;
+}
+
+::-webkit-scrollbar-track {
+    background-color: lightslategray;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--color);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    height: 4em;
+}
+
+.history-header .history-actions {
+    display: flex;
+}
+
+.history-header .history-actions img {
+    width: 2em;
+}
+
+.notification {
+    position: fixed;
+    background: white;
+    box-shadow: 0 0 10px 0 lightslategray;
+    width: auto;
+    color: var(--color);
+    opacity: 0;
+    transition: all ease 1s;
+    border-left: 5px solid var(--color);
+    max-width: 25em;
+    pointer-events: none;
+}
+
+.notification-message {
+    padding: 2em;
+}
+
+.notification.trigger {
+    pointer-events: unset;
+    opacity: 1;
+    transition: all ease 1s;
+}
+
+.translate-left {
+    transform: translate(-100%, 0)
+}
+
+.translate-right {
+    transform: translate(100%, 0)
+}
+
+.translate-down {
+    transform: translate(0, 100%)
+}
+
+.translate-up {
+    transform: translate(0, -100%);
+}
+
+.disappear {
+    opacity: 0;
+}
+
+.appear {
+    opacity: 1;
+}
+
+.column-container {
+    display: flex;
+    transition: all ease 1s;
+}
+
+.column {
+    width: 100%;
+    flex-shrink: 0;
+    transition: all ease-in-out 1s;
+}
+
+.delete-history {
+    cursor: pointer;
+}
+
+.delete-history.inactive {
+    opacity: 0.5;
+    cursor: none;
+    pointer-events: none;
+}
+
+.zero-height {
+    height: 0;
+}
+
+.info-history {
+    cursor: pointer;
+}
+
+.time-left {
+    width: 100%;
+    background: var(--color);
+    height: 2px;
+}
