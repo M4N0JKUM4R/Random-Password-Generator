@@ -26,7 +26,6 @@ body {
 
 body {
     font-family: 'Poppins', sans-serif;
-    height: fit-content;
     background: var(--color);
     overflow-x: hidden;
 }
@@ -50,6 +49,7 @@ body {
     body {
         padding: 1.25em;
         align-items: unset;
+        height: fit-content;
     }
 
     .container {
