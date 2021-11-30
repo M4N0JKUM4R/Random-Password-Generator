@@ -50,6 +50,7 @@ body {
         padding: 1.25em;
         align-items: unset;
         height: fit-content;
+        font-size: 0.825rem;
     }
 
     .container {
