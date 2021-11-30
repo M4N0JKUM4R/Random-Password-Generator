@@ -21,6 +21,7 @@ const notification = document.querySelector(".notification")
 const deleteLSEl = document.querySelector(".delete-history")
 const historyNumber = document.querySelector(".history-number")
 const historyLoop = document.querySelector(".history-loop")
+const passwordBox = document.querySelector(".password-box")
 
 // Get sound inputs
 const savedAudio = new Audio("sounds/saved.mp3")
@@ -228,6 +229,7 @@ const adjustContentDimensions = () => {
 }
 
 const adjustPasswordHistoryDimension = () => {
+    historyLoop.style.height = "60px";
     historyLoop.style.height = (generatedPasswordField.clientHeight + 285) + "px";
 }
 
@@ -261,7 +263,7 @@ const displayHistory = () => {
 
     passwordHistoryEl.querySelector(".history-loop").innerHTML = ""
     if (passwordHistory == null || passwordHistory.length == 0) {
-        disablePointerEvents()
+        disablePointerEvents([passwordHistoryBtn, generatePasswordBtn, infoButton, deleteLSEl])
         emptyState()
         notify(notificationText = "No Passwords stored in local history", 3000)
     } else {
@@ -325,7 +327,7 @@ passwordHistoryBtn.addEventListener("click", () => {
 
 deleteLSEl.addEventListener("click", () => {
     localStorage.clear()
-    disablePointerEvents()
+    disablePointerEvents([infoButton,passwordHistoryBtn,generatePasswordBtn])
     let allPasswords = passwordHistoryEl.querySelectorAll(".password-container")
 
     allPasswords.forEach((e, index) => {
@@ -375,8 +377,9 @@ const notify = (notificationText, timer, close) => {
     removeNotify()
 }
 
-infoButton.addEventListener("click", () => {
+infoButton.addEventListener("click", async () => {
     notify(`All your passwords are stored in your browser's <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage">LocalStorage</a> and never sent to any server which you can verify using the source code: <a target="_blank" href="https://github.com/M4N0JKUM4R/Password-Generator">Github Repository</div>`, 5000)
+    disablePointerEvents([passwordHistoryBtn, generatePasswordBtn, infoButton, deleteLSEl])
 })
 
 
@@ -402,11 +405,13 @@ const checkForHistoryActivity = () => {
 
 checkForHistoryActivity()
 
-const disablePointerEvents = () => {
-    document.querySelector(".password-box").style.pointerEvents = "none";
-    setTimeout(() => {
-        document.querySelector(".password-box").style.pointerEvents = "unset";
-    }, 5000)
+const disablePointerEvents = (el) => {
+    el.forEach(element => {
+        element.style.pointerEvents = "none";
+        setTimeout(() => {
+            element.style.pointerEvents = "unset";
+        }, 5000)
+    })  
 }
 
 const emptyState = () => {
