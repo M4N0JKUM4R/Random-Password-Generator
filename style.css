@@ -402,6 +402,13 @@ body {
     pointer-events: none;
 }
 
+@media (max-width: 768px) {
+    .notification {
+        top: 4em;
+        left: 4em;
+    }
+}
+
 .notification-message {
     padding: 2em;
 }
