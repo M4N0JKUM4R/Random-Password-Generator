@@ -59,7 +59,7 @@ body {
     .password-box {
         width: 100%;
         margin-bottom: 15em;
-        padding: 1.25em;
+        padding: 2em 1.25em;
         overflow-y: auto;
         height: fit-content;
     }
@@ -328,6 +328,7 @@ body {
     overflow-y: auto;
     padding-right: 1em;
     padding-bottom: 2em;
+    transition: all ease-in-out 1s;
 }
 
 .history-loop .password-copy {

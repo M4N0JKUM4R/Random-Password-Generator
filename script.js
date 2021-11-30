@@ -119,6 +119,7 @@ generatePasswordBtn.addEventListener("click", () => {
     generatePassword();
     strengthIndicator(password, strength);
     adjustContentDimensions();
+    adjustPasswordHistoryDimension();
 })
 
 /* Form the complete array from the set of subarrays */
@@ -299,6 +300,7 @@ const displayHistory = () => {
 
 passwordHistoryBtn.addEventListener("click", () => {
     displayHistory()
+    adjustContentDimensions()
     adjustPasswordHistoryDimension()
     document.querySelector(".column-container").classList.add("translate-left")
     document.querySelector(".column-1").classList.add("disappear")
