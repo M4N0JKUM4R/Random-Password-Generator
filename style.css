@@ -45,28 +45,6 @@ body {
     overflow: hidden;
 }
 
-@media (max-width: 768px) {
-    body {
-        padding: 1.25em;
-        align-items: unset;
-        height: fit-content;
-        font-size: 0.825rem;
-    }
-
-    .container {
-        place-items: unset;
-    }
-
-    .password-box {
-        width: 100%;
-        margin-bottom: 15em;
-        padding: 2em 1.25em;
-        overflow-y: auto;
-        height: fit-content;
-    }
-
-}
-
 .password-box .generated-password {
     background: var(--lighter-color);
     padding: 1em;
@@ -129,6 +107,8 @@ body {
     cursor: url("images/password.png"), auto;
     text-transform: uppercase;
 }
+
+
 
 .button-actions>button {
     border-bottom: 5px solid black;
@@ -291,13 +271,6 @@ body {
     position: relative;
 }
 
-@media (max-width: 768px) {
-    .input.password-length-group {
-        flex-direction: column;
-        gap: 1em 0;
-    }
-}
-
 .password-length-value {
     background: var(--dark);
     padding: 0.25em 0.5em;
@@ -403,13 +376,6 @@ body {
     pointer-events: none;
 }
 
-@media (max-width: 768px) {
-    .notification {
-        top: 4em;
-        left: 4em;
-    }
-}
-
 .notification-message {
     padding: 2em;
 }
@@ -477,4 +443,44 @@ body {
     width: 100%;
     background: var(--color);
     height: 2px;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 1.25em;
+        align-items: unset;
+        height: fit-content;
+        font-size: 0.825rem;
+    }
+
+    .container {
+        place-items: unset;
+    }
+
+    .password-box {
+        width: 100%;
+        margin-bottom: 15em;
+        padding: 2em 1.25em;
+        overflow-y: auto;
+        height: fit-content;
+    }
+
+    .password-box .generated-password {
+        height: 50px;
+    }
+
+    #generate-password {
+        font-size: 0.825rem;
+    }
+
+    .input.password-length-group {
+        flex-direction: column;
+        gap: 1em 0;
+    }
+
+    .notification {
+        top: 4em;
+        left: 4em;
+    }
+
 }
