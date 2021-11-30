@@ -324,7 +324,6 @@ body {
 
 .history-loop {
     min-height: 15em;
-    max-height: 25em;
     overflow-x: hidden;
     overflow-y: auto;
     padding-right: 1em;

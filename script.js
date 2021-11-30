@@ -226,6 +226,10 @@ const adjustContentDimensions = () => {
     generatedPasswordField.parentElement.style.height = (generatedPasswordField.clientHeight + 35) + "px";
 }
 
+const adjustPasswordHistoryDimension = () => {
+    historyLoop.style.height = (generatedPasswordField.clientHeight + 285) + "px";
+}
+
 const storePassword = () => {
     let time = new Date().toLocaleString()
     if (passwordHistory == null) {
@@ -295,6 +299,7 @@ const displayHistory = () => {
 
 passwordHistoryBtn.addEventListener("click", () => {
     displayHistory()
+    adjustPasswordHistoryDimension()
     document.querySelector(".column-container").classList.add("translate-left")
     document.querySelector(".column-1").classList.add("disappear")
     setTimeout(() => {
