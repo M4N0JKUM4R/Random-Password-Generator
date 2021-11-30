@@ -378,7 +378,7 @@ const notify = (notificationText, timer, close) => {
 }
 
 infoButton.addEventListener("click", async () => {
-    notify(`All your passwords are stored in your browser's <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage">LocalStorage</a> and never sent to any server which you can verify using the source code: <a target="_blank" href="https://github.com/M4N0JKUM4R/Password-Generator">Github Repository</div>`, 5000)
+    notify(`All your passwords are stored in your browser's <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage">LocalStorage</a> and never sent to any server which you can verify using the source code: <a target="_blank" href="https://github.com/M4N0JKUM4R/Random-Password-Generator">Github Repository</div>`, 5000)
     disablePointerEvents([passwordHistoryBtn, generatePasswordBtn, infoButton, deleteLSEl])
 })
 
