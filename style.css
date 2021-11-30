@@ -246,7 +246,7 @@ body {
 }
 
 .time-stored {
-    left: -9.75em;
+    left: -9em;
 }
 
 .copied-message::after {
@@ -275,7 +275,7 @@ body {
 }
 
 .time-stored::after {
-    left: 9.5em;
+    left: 8.75em;
 }
 
 .copied-message.success {
