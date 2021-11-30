@@ -233,7 +233,7 @@ body {
     left: -5.5em;
 }
 
-.saved-message {
+.saved-message, .time-stored {
     opacity: 0;
     position: absolute;
     background: var(--dark);
@@ -243,6 +243,10 @@ body {
     top: -2.75em;
     width: max-content;
     left: -1.75em;
+}
+
+.time-stored {
+    left: -9.75em;
 }
 
 .copied-message::after {
@@ -257,7 +261,8 @@ body {
     border-color: transparent transparent transparent var(--dark);
 }
 
-.saved-message::after {
+.saved-message::after,
+.time-stored::after {
     content: "";
     width: 0;
     height: 0;
@@ -269,11 +274,15 @@ body {
     border-color: var(--dark) transparent transparent transparent;
 }
 
+.time-stored::after {
+    left: 9.5em;
+}
+
 .copied-message.success {
     opacity: 1;
 }
 
-.saved-message.success {
+.saved-message.success, .time-stored.success {
     opacity: 1;
 }
 
@@ -338,6 +347,7 @@ body {
 
 .history-loop .password-time {
     cursor: help;
+    position: relative;
 }
 
 .history-loop .empty-state {

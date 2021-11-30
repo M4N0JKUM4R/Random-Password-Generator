@@ -277,6 +277,7 @@ const displayHistory = () => {
                                                 <i class="fa fa-copy"></i>
                                             </div>
                                             <div class="password-time"> 
+                                                <div class="time-stored">${password.time}</div>
                                                 <i class="fa fa-clock" title="${password.time}"></i> 
                                             </div>
                                         </div>
@@ -292,6 +293,14 @@ const displayHistory = () => {
                 passwordCopyEl.querySelector(".copied-message").classList.add("success")
                 setTimeout(() => {
                     passwordCopyEl.querySelector(".copied-message").classList.remove("success")
+                }, 3000)
+            })
+
+            let passwordTimeEl = passwordEl.querySelector(".password-time")
+            passwordTimeEl.addEventListener("click", (el) => {
+                passwordTimeEl.querySelector(".time-stored").classList.add("success")
+                setTimeout(() => {
+                    passwordTimeEl.querySelector(".time-stored").classList.remove("success")
                 }, 3000)
             })
         })
