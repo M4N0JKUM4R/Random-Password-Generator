@@ -481,6 +481,7 @@ body {
     .notification {
         top: 45%;
         left: 10%;
+        max-width: 15em;
     }
 
 }
