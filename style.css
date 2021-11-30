@@ -484,4 +484,14 @@ body {
         max-width: 80%;
     }
 
+    .inputs {
+        margin: 1em 0;
+    }
+
+    .password-box input[type="number"] {
+        width: 50px;
+        height: 30px;
+        font-size: 0.825rem;
+    }
+
 }
