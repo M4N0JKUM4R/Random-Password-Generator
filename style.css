@@ -323,12 +323,16 @@ body {
     background: var(--lighter-color);
     padding: 1em;
     color: white;
-    margin-top: 1em;
+    margin-top: 2em;
     word-break: break-all;
     display: flex;
     gap: 2em;
     justify-content: space-between;
     transition: all ease-in-out 2s;
+}
+
+.password-container {
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 20%), 0 1px 5px 0 rgb(0 0 0 / 12%);
 }
 
 .history-loop {
@@ -346,7 +350,6 @@ body {
 }
 
 .history-loop .password-time {
-    cursor: help;
     position: relative;
 }
 
